@@ -125,13 +125,7 @@ function move(index) {
 function finish() {
   elapsed = performance.now() - started;
   $('timer').textContent = timeText(elapsed);
-  $('intro').classList.add('won');
-  $('eyebrow').textContent = 'PERFECT · 모든 조각이 제자리에';
-  $('headline').textContent = '멋진 풍경을 완성했어요!';
-  $('instructions').textContent = `${n} × ${n} · ${engine.puzzle_moves()}회 이동 · ${timeText(elapsed)}`;
-  $('intro').hidden = false;
-  resize();
-  $('hint').textContent = '잠시 멈춰, 완성된 풍경을 감상하세요.';
+  $('hint').textContent = '';
   $('new-game-label').textContent = '한 판 더';
   $('dock-label').hidden = true;
   // Finish the clicked tile first, then return the piece stored outside the board.
@@ -145,7 +139,7 @@ function finish() {
     $('stage').classList.add('solved');
     locked = false;
     positionTiles();
-    if (!reducedMotion) celebrate();
+    celebrate();
   }, reducedMotion ? 0 : 710));
 }
 

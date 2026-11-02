@@ -24,7 +24,7 @@ footer{display:flex;align-items:center;gap:6px;font-size:9px;color:var(--muted);
 html:fullscreen {background:#fbe1ef;overflow:auto}html:fullscreen .install-hint{display:none}.no-transitions .tile{transition:none!important}
 @media(min-width:600px){.app{margin-top:24px;padding:26px 24px 22px;width:480px;border:1px solid #e5a4c5;border-radius:24px;background:#fff4fa;box-shadow:0 18px 65px #b64a8420}.topbar{margin-bottom:24px}}
 @media(max-height:720px){.app{padding-top:max(12px,env(safe-area-inset-top))}.topbar{margin-bottom:15px}.intro{margin-bottom:6px;min-height:72px}.stats{margin-bottom:15px;padding:10px 0}.hint{margin-bottom:12px}.game-actions button{height:44px}footer{margin-top:12px}.install-hint{margin-top:9px}}
-@media(prefers-reduced-motion:reduce){.tile{transition:none!important}#celebration{display:none}}
+@media(prefers-reduced-motion:reduce){.tile{transition:none!important}}
 .size-row { gap:12px; padding:12px 0; align-items:flex-start; }
 .size-row > span { padding-top:9px; white-space:nowrap; }
 .size-options { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:6px; flex:1; }
