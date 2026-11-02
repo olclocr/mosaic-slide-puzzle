@@ -1,0 +1,16 @@
+{
+  "id": "./",
+  "name": "MOSAIC · 슬라이드 퍼즐",
+  "short_name": "MOSAIC",
+  "lang": "ko",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#fff4fa",
+  "theme_color": "#fbe1ef",
+  "icons": [
+    {"src": "./icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+    {"src": "./icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}
+  ]
+}

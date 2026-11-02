@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#fbe1ef">
+  <meta name="description" content="한 조각씩, 하나의 풍경으로. 사진을 골라 즐기는 세로형 Rust 슬라이드 퍼즐.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>MOSAIC · 슬라이드 퍼즐</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./icon-192.png">
+  <link rel="stylesheet" href="./style.css?v=mobile-fit-7">
+  <script type="module" src="./app.js?v=mobile-fit-7"></script>
+</head>
+<body>
+  <main class="app" aria-label="MOSAIC 슬라이드 퍼즐">
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="Mosaic 처음으로"><span class="brand-icon" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>MOSAIC<small>SLIDE PUZZLE</small></span></a>
+      <div class="header-actions">
+        <button id="fullscreen" class="icon-button" title="전체화면" aria-label="전체화면으로 플레이"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4H4v4m12-4h4v4M4 16v4h4m12-4v4h-4"/></svg></button>
+        <button id="settings-button" class="icon-button" aria-expanded="false" aria-controls="settings" title="설정" aria-label="퍼즐 설정"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 17h16M9 4v6m6 4v6"/></svg></button>
+      </div>
+    </header>
+
+    <section id="settings" class="settings" hidden aria-label="퍼즐 설정">
+      <div class="setting-row size-row"><span id="size-label">보드 크기</span><div id="size" class="size-options" role="group" aria-labelledby="size-label"><button type="button" data-size="2" aria-pressed="false">2 × 2</button><button type="button" data-size="3" aria-pressed="false">3 × 3</button><button type="button" data-size="4" aria-pressed="true">4 × 4</button><button type="button" data-size="5" aria-pressed="false">5 × 5</button><button type="button" data-size="6" aria-pressed="false">6 × 6</button><button type="button" data-size="7" aria-pressed="false">7 × 7</button><button type="button" data-size="8" aria-pressed="false">8 × 8</button></div></div>
+      <div class="setting-row"><label for="numbers">타일 번호</label><input id="numbers" type="checkbox" checked></div>
+      <div class="setting-row"><label for="preview-toggle">완성 이미지 미리보기</label><input id="preview-toggle" type="checkbox"></div>
+      <button id="default-image" class="text-button">기본 풍경 사용하기</button>
+      <p>이미지나 크기를 바꾸면 새 게임이 시작됩니다.</p>
+      <button id="install" class="text-button" hidden>홈 화면에 설치하기 ↗</button>
+    </section>
+
+    <section id="intro" class="intro" aria-live="polite" hidden>
+      <div class="eyebrow" id="eyebrow"></div>
+      <h1 id="headline"></h1>
+      <p id="instructions"></p>
+    </section>
+
+    <div class="stats" aria-label="게임 기록">
+      <div><span>보드</span><strong id="board-size">4 × 4</strong></div>
+      <div><span>이동</span><strong id="moves">0<small>회</small></strong></div>
+      <div><span>시간</span><strong id="timer">00:00</strong></div>
+    </div>
+
+    <section class="play-area" aria-label="퍼즐">
+      <div id="stage" class="stage" aria-busy="true">
+        <div id="board-background" class="board-background"></div>
+        <div id="tiles" role="group" aria-label="퍼즐 타일"></div>
+        <div id="complete-image" class="complete-image" role="img" aria-label="완성된 퍼즐 이미지" hidden></div>
+        <span id="dock-label" class="dock-label">마지막 조각 <span aria-hidden="true">↴</span></span>
+      </div>
+      <p id="hint" class="hint">마지막 조각은 보드 밖에서 기다리고 있어요.</p>
+    </section>
+
+    <div id="preview" class="preview" hidden><img src="./landscape.svg?v=princess-5" alt="퍼즐의 완성 이미지"><span>완성 이미지</span></div>
+
+    <nav class="game-actions" aria-label="게임 동작">
+      <button id="choose-image" class="secondary" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8" cy="8" r="1.5"/><path d="m4 18 5-5 4 4 3-3 4 4"/></svg><span>사진 선택</span></button>
+      <button id="shuffle" class="primary" disabled><span id="new-game-label">새 게임</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 5 7 7-7 7M3 12h18"/></svg></button>
+    </nav>
+    <input id="image-file" type="file" accept="image/*" hidden>
+    <footer><span class="live-dot"></span><span id="footer-text">Rust 퍼즐을 불러오는 중…</span><span class="edition">PORTRAIT EDITION</span></footer>
+    <div id="notice" role="status" class="notice" hidden></div>
+    <noscript>이 퍼즐을 실행하려면 브라우저에서 JavaScript를 켜 주세요.</noscript>
+  </main>
+  <canvas id="celebration" aria-hidden="true"></canvas>
+</body>
+</html>
